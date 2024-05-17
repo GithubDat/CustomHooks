@@ -3,8 +3,8 @@ import useFetch from "./customhooks/useFetch";
 import './App.css';
 
 const App = () => {
-  const { resposnseFromUrl, isLoading, isError, apiError } = useFetch('https://dummyjson.com/users');
-  console.log('Comp DATA', resposnseFromUrl);
+  const { responseFromUrl, isLoading, isError, apiError } = useFetch('https://dummyjson.com/users');
+  console.log('Comp DATA', responseFromUrl);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -18,7 +18,7 @@ const App = () => {
     <main>
       <section className="menu-section">
         <h1>API Data</h1>
-        {resposnseFromUrl.users.map((res) => (
+        {responseFromUrl.users.map((res) => (
           <div key={res.id}>
             <span className='user-detail'>{res.firstName} {res.lastName}</span>
             <span className='user-detail--email'>{res.email}</span>
